@@ -3,9 +3,10 @@ Connected weather station with: ESP32, micropython, tft spi ili9341 , RF 433 Mhz
 
 ![](carte.png)
 
-Just copy all the files in the 'version1' folder to the ESP32 board and run.
-For the RF sensors, the code in 'mesure.py' have to be adapt to your model.
+Just copy all the files in the 'version1' folder to the ESP32 board and run.\n
 
-My Rf signal is here:
+For RF sensor, the code in 'mesure.py' have to be adapt to your model.
+
+My sensor's Rf signal is here:
 
  ![](Rf_signal.PNG)
