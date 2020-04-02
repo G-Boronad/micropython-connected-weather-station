@@ -1,0 +1,23 @@
+Connecting Diagram
+
+IlI9341 tft/spi Screen:
+CS ---> GPIO15
+Rst ---> GPIO25
+D/C --->GPIO32
+MOSI ---> GPIO13
+SCK --->GPIO14
+MISO --->GPIO12
+LED --->GPIO 21
+
+BME280 (I²C):
+sda ---> GPIO18
+scl/sck ---> GPIO22
+
+Obstacle détector sensor :
+(it commands screen's LED PIN)
+signal --> GPIO16
+
+RF 433Mhz - RXB6:
+data ---> GPIO19
+
+
