@@ -15,5 +15,4 @@ My sensor's Rf signal is here:
   ![](binary_code.PNG)
   
   And Now results on screen and smartphone
-  ![](Screen_result.png)   ![](Smartphone_result.png)
-  
+  ![](Result.png)
