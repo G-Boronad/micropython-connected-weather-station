@@ -12,5 +12,10 @@ For RF sensor, the code in 'mesure.py' have to be adapt to your model.
 My sensor's Rf signal is here:
 
  ![](Rf_signal.PNG)
- 
- ![](binary_code.PNG)
+  ![](binary_code.PNG)
+  
+  And Now the results !
+  - On screen
+  ![](Screen_result.png)
+  -On smartphone
+![](Smartphone_result.png)
