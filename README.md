@@ -12,3 +12,5 @@ For RF sensor, the code in 'mesure.py' have to be adapt to your model.
 My sensor's Rf signal is here:
 
  ![](Rf_signal.PNG)
+ 
+ ![](binary code.PNG)
