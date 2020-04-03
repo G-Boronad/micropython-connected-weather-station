@@ -62,27 +62,30 @@ def traite_openweathermap():
         vent_orientation = data.get("wind").get("deg")
         print("Température : " + str(temperature))    
         print("Vitesse du vent : " + str(vent_vitesse) + " Km/h, Orientation : " + str(vent_orientation) + "°")
-              
-        if vent_orientation > 22.5 and vent_orientation <= 67.5:
-            icon_vent = 'NE.txt'
-        elif vent_orientation > 67.5 and vent_orientation <= 112.5:
-            icon_vent = 'E.txt'
-        elif vent_orientation > 112.5 and vent_orientation <= 157.5:
-            icon_vent = 'SE.txt'
-        elif vent_orientation > 157.5 and vent_orientation <= 202.5:
-            icon_vent = 'S.txt'
-        elif vent_orientation > 202.5 and vent_orientation <= 237.5:
-            icon_vent = 'SO.txt'
-        elif vent_orientation > 237.5 and vent_orientation <= 292.5:
-            icon_vent = 'O.txt'
-        elif vent_orientation > 292.5 and vent_orientation <= 337.5:
-            icon_vent = 'NO.txt'
-        else :
-            icon_vent = 'N.txt'
+        
+        if vent_orientation != None:
+            if vent_orientation > 22.5 and vent_orientation <= 67.5:
+                icon_vent = 'NE.txt'
+            elif vent_orientation > 67.5 and vent_orientation <= 112.5:
+                icon_vent = 'E.txt'
+            elif vent_orientation > 112.5 and vent_orientation <= 157.5:
+                icon_vent = 'SE.txt'
+            elif vent_orientation > 157.5 and vent_orientation <= 202.5:
+                icon_vent = 'S.txt'
+            elif vent_orientation > 202.5 and vent_orientation <= 237.5:
+                icon_vent = 'SO.txt'
+            elif vent_orientation > 237.5 and vent_orientation <= 292.5:
+                icon_vent = 'O.txt'
+            elif vent_orientation > 292.5 and vent_orientation <= 337.5:
+                icon_vent = 'NO.txt'
+            else :
+                icon_vent = 'N.txt'
+        if vent_orientation == None:
+            icon_vent = 'interrogation.txt'
         temperature = str(int(round(temperature,0)))
         t_res = str(int(round(t_res,0)))
         vent_vitesse= str(int(round(vent_vitesse,0)))
-        return(icon_meteo,temperature,t_res,icon_vent,str(vent_vitesse))
+        return(icon_meteo,temperature,t_res,icon_vent,vent_vitesse)
     else:
         print("Problème ...")
         
