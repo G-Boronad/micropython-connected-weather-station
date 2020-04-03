@@ -6,8 +6,8 @@ import network
 from time import ticks_ms
 
 #Paramètres connexion WIFI
-ssid = "HOME"
-password = "14e0040820jtt"
+ssid = "Your SSID"
+password = "Your wifi key"
 wifi = network.WLAN(network.STA_IF)  # création client d'accès WiFi
 rtc = RTC()
 url_openweathermap = 'http://api.openweathermap.org/data/2.5/weather?q=laval,fr&units=metric&APPID=' +'Your API key'
