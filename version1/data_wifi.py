@@ -44,6 +44,7 @@ def traite_date_heure():
             heure += heure_offset
         if operation_offset == "-":
             heure -= heure_offset
+        data =()
         rtc.datetime((annee, mois, date, 0, heure, minute, seconde, 0))
               
 def traite_openweathermap():
@@ -85,6 +86,7 @@ def traite_openweathermap():
         temperature = str(int(round(temperature,0)))
         t_res = str(int(round(t_res,0)))
         vent_vitesse= str(int(round(vent_vitesse,0)))
+        data = ()
         return(icon_meteo,temperature,t_res,icon_vent,vent_vitesse)
     else:
         print("Problème ...")
