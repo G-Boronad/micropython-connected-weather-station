@@ -5,13 +5,13 @@ from  machine import RTC
 import network
 
 #Paramètres connexion WIFI
-ssid = "HOME"
-password = "14e0040820jtt"
+ssid = "..."
+password = "..."
 wifi = network.WLAN(network.STA_IF)  # création client d'accès WiFi
 rtc = RTC()
-url_openweathermap = 'http://api.openweathermap.org/data/2.5/weather?q=laval,fr&units=metric&APPID=1f0dcfa859a381bd96bd7f57f7481ec8'
+url_openweathermap = 'http://api.openweathermap.org/data/2.5/weather?q=laval,fr&units=metric&APPID=...'
 url_worldtimeapi = "http://worldtimeapi.org/api/timezone/Europe/Paris"
-url_blynk = "http://blynk-cloud.com/C-fiYmEf0PagfdS3eaFIsw260rsgwZKP/update/"
+url_blynk = "http://blynk-cloud.com/.../update/"
 
 def connect_wifi():
     print("Connexion au réseau WIFI '{}'".format(ssid) + "...")
