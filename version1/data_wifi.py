@@ -3,26 +3,24 @@ import urequests
 import time
 from  machine import RTC
 import network
-from time import ticks_ms
 
 #Paramètres connexion WIFI
-ssid = "Your SSID"
-password = "Your wifi key"
+ssid = "HOME"
+password = "14e0040820jtt"
 wifi = network.WLAN(network.STA_IF)  # création client d'accès WiFi
 rtc = RTC()
-url_openweathermap = 'http://api.openweathermap.org/data/2.5/weather?q=laval,fr&units=metric&APPID=' +'Your API key'
+url_openweathermap = 'http://api.openweathermap.org/data/2.5/weather?q=laval,fr&units=metric&APPID=1f0dcfa859a381bd96bd7f57f7481ec8'
 url_worldtimeapi = "http://worldtimeapi.org/api/timezone/Europe/Paris"
-url_blynk = "http://blynk-cloud.com/" +"your API KEY"+"/update/"
+url_blynk = "http://blynk-cloud.com/C-fiYmEf0PagfdS3eaFIsw260rsgwZKP/update/"
 
 def connect_wifi():
-    delay = 6000
-    prevtime = ticks_ms()
     print("Connexion au réseau WIFI '{}'".format(ssid) + "...")
     wifi.active(True)  # activation du client d'accès WiFi   
     wifi.connect(ssid, password)
-    while  ticks_ms() - prevtime < delay:
-        while not wifi.isconnected():  # connexion au point d'accès WiFi
-            pass
+    count = 0
+    while not wifi.isconnected() and count<20:  # connexion au point d'accès WiFi
+        count +=1
+        time.sleep(0.5)
     if wifi.isconnected():
         print("WIFI connecté")
         print('WiFi IP:', wifi.ifconfig()[0])
@@ -53,14 +51,13 @@ def traite_openweathermap():
     if reponse.status_code == 200:
         print("Réception OK")
         data = json.loads(reponse.text)
-        temperature = data.get("main").get("temp")
-        weather = data.get("weather")
+        temperature = data["main"]["temp"]
         icon_meteo = data["weather"][0]["icon"]
         icon_meteo = icon_meteo[:2]
-        t_res = data.get("main").get("feels_like")
-        vent_vitesse = data.get("wind").get("speed")
+        t_res = data["main"]["feels_like"]
+        vent_vitesse = data["wind"]["speed"]
         vent_vitesse = (3.6 * vent_vitesse)
-        vent_orientation = data.get("wind").get("deg")
+        vent_orientation = data["wind"]["deg"]
         print("Température : " + str(temperature))    
         print("Vitesse du vent : " + str(vent_vitesse) + " Km/h, Orientation : " + str(vent_orientation) + "°")
         
@@ -120,4 +117,5 @@ def send_Blynk(t,t1,t2,hr1):
         print("Send HR1: OK")
     else:
         print("HR1 Error!")
+    url=()
     reponse.close()

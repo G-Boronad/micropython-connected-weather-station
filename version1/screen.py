@@ -31,14 +31,18 @@ def Screen_init():
     display.set_font(tt24)
     display.print('je demarre !!!')
 def Screen_write(t,p,t1,hr1,t2,hr2,text,t_res,vit_vent, icon_vent,icon_meteo):
+    if icon_vent == None:
+        icon_vent = 'interrogation.txt'
+    if icon_meteo == None:
+        icon_meteo = 'interrogation'
     icon_vent = "ICONS/" +icon_vent
     icon_meteo = "ICONS/"+icon_meteo + ".txt"
     clock = rtc.datetime()
     display.erase()
-    #Date heure
-    display.set_pos(80,5)
-    display.set_font(tt24)
-    display.print(str(clock[2])+"/"+str(clock[1])+"/"+str(clock[0]))
+    #Date
+    display.set_pos(85,5)
+    display.set_font(tt14)
+    display.print(str(clock[2])+" / "+str(clock[1])+" / "+str(clock[0]))
     # heure
     display.set_pos(100,30)
     display.set_font(tt24)

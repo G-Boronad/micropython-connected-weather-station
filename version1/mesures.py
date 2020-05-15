@@ -70,11 +70,13 @@ def Sondes():
                 if Trame_bin[10:12] == [0,0]:
                     canal = 1
                     
-                if Trame_bin[10:12] == [0,1]:
+                elif Trame_bin[10:12] == [0,1]:
                     canal = 2
                     
-                if Trame_bin[10:12] == [1,0]:
+                elif Trame_bin[10:12] == [1,0]:
                     canal = 3
+                else:
+                    canal = None
                 print('--------------------------')
                 print('Trame = ',Trame_bin)
                 print('Numero du canal:',canal)
@@ -97,5 +99,4 @@ def bmp280_mes():
     print('T = ',round(T,1), '°C')
     print('P = ',P, 'hPa')
     print('----------')
-    return(round(T,1),P)
-    prevtime1 = ticks_ms()       
+    return(round(T,1),P)       

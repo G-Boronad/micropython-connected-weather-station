@@ -1,8 +1,9 @@
 import data_wifi
 import mesures
-from time import sleep_us, ticks_ms
+from time import ticks_ms,sleep_us
 import screen
-from machine import Pin
+from machine import Pin,reset
+import gc
 
 #BME280
 delay1 = 30000
@@ -14,9 +15,12 @@ T1= 0
 HR1 = 0
 T2 = 0
 HR2 = 0
-Text = 0
-T_RES = 0
-vit_vent = 0
+Text = '0'
+T_RES = '0'
+vit_vent = '0'
+icon_vent = None
+icon_meteo = None
+
 #Données météo
 prevtime2 = ticks_ms()
 #Affichage
@@ -32,7 +36,7 @@ def eclairage():
     if Sens.value() == 0:
         prevtime4 = ticks_ms()
         Led.value(1)
-    if ticks_ms() - prevtime4 > 30000:
+    if ticks_ms() - prevtime4 > 35254:
         Led.value(0)
 #Programme principal
 Led.value(1)
@@ -44,7 +48,8 @@ if data_wifi.connect_wifi() is True:
     data_wifi.traite_date_heure()
     print('Connect OpenWeatherMap ... ')
     icon_meteo,Text,T_RES,icon_vent,vit_vent = data_wifi.traite_openweathermap()
-screen.Screen_write(T,P,T1,HR1,T2,HR2,Text,T_RES,vit_vent,icon_vent,icon_meteo)              
+screen.Screen_write(T,P,T1,HR1,T2,HR2,Text,T_RES,vit_vent,icon_vent,icon_meteo)
+print('Memoire Ram utilisée:',gc.mem_alloc())
 while True:
     eclairage()   
     sleep_us(2)
@@ -56,12 +61,14 @@ while True:
         if Data[0] == 2:
             T2 = Data[1]
             HR2 = Data[2]        
-    if  ticks_ms() - prevtime1 > 30000:#BMP280
+    if  ticks_ms() - prevtime1 > 32427:#BMP280
         T,P = mesures.bmp280_mes()
         prevtime1 = ticks_ms()    
-    if  ticks_ms() - prevtime3 > 47890: #Affichage
+    if  ticks_ms() - prevtime3 > 62427: #Affichage
         screen.Screen_write(T,P,T1,HR1,T2,HR2,Text,T_RES,vit_vent,icon_vent,icon_meteo)
-        prevtime3 = ticks_ms()    
+        prevtime3 = ticks_ms()
+        gc.collect()
+        print('Memoire Ram utilisée:',gc.mem_alloc())
     if  ticks_ms() - prevtime2 > 1800595: #OpenWeatherMap
         if  data_wifi.connect_wifi() is True:
             print('Connect OpenWeatherMap ... ')
@@ -76,3 +83,5 @@ while True:
         else:
             print(" Pas de connection Wifi ...")
         prevtime5 = ticks_ms()
+    if ticks_ms()> 85e6:
+        reset()
