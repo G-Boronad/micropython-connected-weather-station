@@ -3,16 +3,19 @@ Connected weather station with: ESP32, micropython, tft spi ili9341 screen, RF 4
 
 ![](carte_english.png)
 
-Copy all files in'version1' folder to the ESP32 board.
+## Start up:
+- Copy all files in'version1' folder to the ESP32 board.
 
-Paste your OpenWeatherMap API key, Blynk API key, SSID name and Wifi key into data_wifi.py file when you see "..."
+- Paste your OpenWeatherMap API key, Blynk API key, SSID name and Wifi key into data_wifi.py file when you see "..."
 
-For RF sensor, the code in 'mesure.py' has to be adapt to your sensor model.
+- For RF sensor, the code in 'mesure.py' has to be adapt to your sensor model.
 
-My sensor Rf signal is here:
+
+## My sensor Rf signal:
 
  ![](Rf_signal.PNG)
   ![](binary_code.PNG)
   
-  And now results on screen and smartphone
+  ## Display on screen and smartphone:
+  
   ![](Result.png)
