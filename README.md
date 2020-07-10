@@ -38,7 +38,7 @@ get data from BMP280
 write on screen
 
 ### ICONS:
-Folder with icons in text files, i use flash memory to stock them and not Ram
+Folder with text files icons , i use flash memory to store them instead of Ram memory.
 
 ### main.py:
 main program
