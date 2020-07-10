@@ -22,11 +22,11 @@ Library for bmp280 sensor
 
 ### data_wifi.py :
 Wifi connexion
-get data from OpenWeatherMap an WorldTimeAPI [](https://itechnofrance.wordpress.com/2019/04/23/creer-une-station-meteo-sans-capteurs-en-micropython/)
-send data to Blynk.io [](https://blynkapi.docs.apiary.io/#) 
+get data from OpenWeatherMap an WorldTimeAPI https://itechnofrance.wordpress.com/2019/04/23/creer-une-station-meteo-sans-capteurs-en-micropython/
+send data to Blynk.io https://blynkapi.docs.apiary.io/#
 
 ### ili934xnew.py : 
-Library for ILI9341 screen [] https://github.com/jeffmer/micropython-ili9341
+Library for ILI9341 screen https://github.com/jeffmer/micropython-ili9341
 
 ### tt14.py and tt24.py : 
 Fonts to print text with ili9341 screen
