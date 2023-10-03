@@ -5,9 +5,9 @@ Connected weather station with: ESP32, micropython, tft spi ili9341 screen, RF 4
 
 ## Installation:
 * See [Connecting diagram file](version1/Connecting%20diagram.txt)
-* Copy all files in'version1' folder to the ESP32 board.
-*  Paste your OpenWeatherMap API key, Blynk API key, SSID name and Wifi key into data_wifi.py file instead of "..."
-*  For RF sensor, the code in 'mesure.py' has to be adapt to your sensor model.
+* Copy all files from *version1* folder to the ESP32 board.
+* Paste your OpenWeatherMap API key, Blynk API key, SSID name and Wifi key into data_wifi.py file instead of "..."
+* *mesure.py* has to be adapt to your sensor model.
 
 
 ## My sensor Rf signal:
@@ -17,22 +17,22 @@ Connected weather station with: ESP32, micropython, tft spi ili9341 screen, RF 4
   
  ## Files explanation:
  ### bmp280.py :
-Library for bmp280 sensor
+ Library for bmp280 sensor
 
 ### data_wifi.py :
 Wifi connexion
-get data from OpenWeatherMap an WorldTimeAPI https://itechnofrance.wordpress.com/2019/04/23/creer-une-station-meteo-sans-capteurs-en-micropython/
-send data to Blynk.io https://blynkapi.docs.apiary.io/#
+* get data from OpenWeatherMap an WorldTimeAPI (https://itechnofrance.wordpress.com/2019/04/23/creer-une-station-meteo-sans-capteurs-en-micropython/)
+* send data to Blynk.io https://blynkapi.docs.apiary.io/#
 
 ### ili934xnew.py : 
 Library for ILI9341 screen https://github.com/jeffmer/micropython-ili9341
 
 ### tt14.py and tt24.py : 
-Fonts to print text with ili9341 screen
+Fonts fot ili9341 screen
 
 ### mesures.py:
-get data from RF sensor
-get data from BMP280
+* get data from RF sensor
+* get data from BMP280
 
 ### screen.py:
 write on screen
